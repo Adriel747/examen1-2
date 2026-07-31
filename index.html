@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Written Exam · Unit 1 · On vacation!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1E293B;--muted:#64748B;--border:#CBD5E1;--bg:#FFF7ED;--card:#fff;
+--or:#EA580C;--orl:#FED7AA;--ord:#9A3412;
+--blue:#2563EB;--bluel:#DBEAFE;--blued:#1E40AF;
+--green:#059669;--greenl:#D1FAE5;--greend:#065F46;
+--purple:#7C3AED;--purplel:#EDE9FE;--purpled:#5B21B6;
+--pink:#DB2777;--pinkl:#FCE7F3;--pinkd:#9D174D;
+--red:#DC2626;--redl:#FEE2E2;
+--amber:#D97706;--amberl:#FEF3C7;--amberd:#92400E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--ink);}
+.cover{background:linear-gradient(135deg,#431407 0%,#9A3412 50%,#EA580C 100%);padding:40px 28px 44px;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 40%,rgba(234,88,12,.4),transparent 55%);}
+.cover-inner{max-width:860px;margin:0 auto;position:relative;}
+.cover-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px;}
+.badge{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;}
+.badge-s{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);}
+.badge-e{background:#FCD34D;color:#92400E;}
+.cover h1{font-family:'Fredoka One',cursive;font-size:clamp(26px,5vw,50px);color:#fff;line-height:1.05;margin-bottom:6px;}
+.cover h1 span{color:#FED7AA;}
+.cover-sub{color:rgba(255,255,255,.7);font-size:13px;font-weight:700;margin-bottom:20px;}
+.student-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px;}
+.sfield{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:10px 14px;}
+.sfield label{display:block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;}
+.sfield input{background:transparent;border:none;border-bottom:1.5px solid rgba(255,255,255,.3);width:100%;color:white;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;outline:none;padding:2px 0;}
+.sfield input::placeholder{color:rgba(255,255,255,.3);}
+.score-box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:10px 16px;text-align:center;}
+.score-box label{display:block;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:2px;}
+.score-big{font-family:'Fredoka One',cursive;font-size:30px;color:#FED7AA;line-height:1;}
+.score-box span{color:rgba(255,255,255,.4);font-size:13px;font-weight:700;}
+.bar{background:white;border-bottom:2px solid var(--border);padding:9px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:40;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.bar-chip{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:800;color:var(--muted);}
+.bar-chip span{font-size:15px;}
+.prog-wrap{flex:1;min-width:130px;display:flex;align-items:center;gap:8px;}
+.prog-track{flex:1;height:7px;background:#E2E8F0;border-radius:4px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,#EA580C,#F97316);border-radius:4px;transition:width .4s;}
+.prog-pts{font-size:12px;font-weight:900;color:var(--ord);white-space:nowrap;}
+.page{max-width:860px;margin:0 auto;padding:24px 14px 60px;}
+.print-btn{display:flex;align-items:center;gap:7px;padding:9px 20px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--or),#F97316);color:white;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;cursor:pointer;margin:16px auto 4px;transition:all .2s;}
+.print-btn:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(234,88,12,.35);}
+.sec-div{display:flex;align-items:center;gap:12px;margin:26px 0 14px;}
+.sec-num{font-family:'Fredoka One',cursive;font-size:30px;line-height:1;flex-shrink:0;}
+.sec-info h3{font-size:16px;font-weight:900;line-height:1.1;}
+.sec-info p{font-size:12px;color:var(--muted);font-weight:600;margin-top:2px;}
+.sec-pts{margin-left:auto;text-align:right;flex-shrink:0;}
+.sec-pts strong{font-family:'Fredoka One',cursive;font-size:20px;display:block;}
+.sec-pts span{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+.ex{background:var(--card);border-radius:14px;margin-bottom:18px;overflow:hidden;border:1.5px solid var(--border);box-shadow:0 2px 10px rgba(0,0,0,.04);}
+.ex-hd{display:flex;align-items:center;gap:9px;padding:12px 18px;border-bottom:1.5px solid var(--border);}
+.ex-letter{width:28px;height:28px;border-radius:7px;color:white;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ex-hd h4{font-size:13px;font-weight:800;flex:1;line-height:1.3;}
+.ex-pts{font-size:10px;font-weight:800;padding:2px 9px;border-radius:20px;background:#F1F5F9;color:var(--muted);}
+.ex-body{padding:18px 20px;}
+.inst{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:14px;padding:9px 13px;background:var(--bg);border-radius:7px;border-left:3px solid #FED7AA;line-height:1.6;}
+.b{min-width:90px;border:none;border-bottom:2.5px solid var(--or);padding:2px 7px;background:var(--orl);border-radius:5px 5px 0 0;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--ord);outline:none;transition:all .15s;}
+.b:focus{border-color:var(--blue);background:var(--bluel);color:var(--blued);}
+.b.ok{border-color:var(--green)!important;background:var(--greenl)!important;color:var(--greend)!important;}
+.b.no{border-color:var(--red)!important;background:var(--redl)!important;color:var(--red)!important;}
+.b.sm{min-width:65px;}.b.lg{min-width:140px;}.b.xl{min-width:180px;}
+.fl{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:11px;font-size:13px;font-weight:600;line-height:2.2;}
+.fn{width:22px;height:22px;background:var(--or);color:white;border-radius:50%;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mc{margin-bottom:14px;padding:12px 15px;background:#FFF7ED;border-radius:10px;border:1.5px solid var(--border);}
+.mc-q{font-size:13px;font-weight:700;margin-bottom:9px;line-height:1.5;}
+.mc-opts{display:flex;flex-wrap:wrap;gap:6px;}
+.mc-opt{padding:6px 13px;border:2px solid var(--border);border-radius:9px;background:white;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;}
+.mc-opt:hover{border-color:var(--or);color:var(--ord);background:var(--orl);}
+.mc-opt.ok{border-color:var(--green);background:var(--greenl);color:var(--greend);}
+.mc-opt.no{border-color:var(--red);background:var(--redl);color:var(--red);}
+.mc-opt.rev{border-color:var(--green);background:var(--greenl);color:var(--greend);opacity:.5;}
+.mc-opts.col{flex-direction:column;}
+.tf{display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:9px;border:1.5px solid var(--border);margin-bottom:8px;background:white;transition:all .2s;}
+.tf.ok{background:var(--greenl);border-color:var(--green);}
+.tf.no{background:var(--redl);border-color:var(--red);}
+.tf-num{font-size:10px;font-weight:900;color:var(--muted);width:16px;flex-shrink:0;}
+.tf-q{flex:1;font-size:12px;font-weight:700;line-height:1.5;}
+.tf-btns{display:flex;gap:5px;flex-shrink:0;}
+.tf-b{padding:4px 11px;border-radius:7px;border:2px solid;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;cursor:pointer;background:white;transition:all .2s;}
+.tf-b.T{border-color:var(--green);color:var(--green);}
+.tf-b.T:hover,.tf-b.T.sel{background:var(--green);color:white;}
+.tf-b.F{border-color:var(--red);color:var(--red);}
+.tf-b.F:hover,.tf-b.F.sel{background:var(--red);color:white;}
+.tf-icon{font-size:15px;}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px;}
+.match-col{display:flex;flex-direction:column;gap:6px;}
+.mi{padding:8px 12px;border-radius:9px;border:2px solid var(--border);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;background:white;text-align:center;line-height:1.4;}
+.mi:hover{transform:scale(1.02);}
+.mi.selL{border-color:var(--amber);background:var(--amberl);color:var(--amberd);}
+.mi.selR{border-color:var(--amber);background:var(--amberl);color:var(--amberd);}
+.mi.matched{border-color:var(--green);background:var(--greenl);color:var(--greend);pointer-events:none;}
+.mi.wrong{border-color:var(--red);background:var(--redl);color:var(--red);}
+.gram-box{background:linear-gradient(135deg,#FFF7ED,#FED7AA);border:2px solid #FDBA74;border-radius:11px;padding:13px 15px;margin-bottom:16px;font-size:12px;font-weight:700;color:var(--ord);line-height:1.8;}
+.gram-box strong{font-size:14px;display:block;margin-bottom:6px;}
+.gram-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px;}
+.gram-cell{background:white;border-radius:7px;padding:7px 11px;font-size:11px;border:1.5px solid #FED7AA;}
+.gram-cell .lbl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);display:block;margin-bottom:3px;}
+.bank{display:flex;flex-wrap:wrap;gap:6px;background:var(--orl);border:1.5px dashed var(--or);border-radius:9px;padding:10px 13px;margin-bottom:14px;}
+.wt{background:white;border:1.5px solid var(--or);color:var(--ord);padding:3px 11px;border-radius:18px;font-size:11px;font-weight:800;}
+.passage{background:linear-gradient(135deg,#FFF7ED,#FED7AA);border:2px solid #FDBA74;border-radius:13px;padding:18px 20px;margin-bottom:18px;}
+.passage h4{font-family:'Fredoka One',cursive;font-size:19px;color:var(--ord);margin-bottom:3px;}
+.passage .ploc{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--or);margin-bottom:11px;}
+.passage p{font-size:13px;font-weight:600;color:var(--ink);line-height:1.9;}
+.passage p+p{margin-top:9px;}
+.hi{background:#FEF3C7;border-radius:3px;padding:1px 3px;}
+.reorder-q{margin-bottom:14px;padding:13px;background:#FFF7ED;border-radius:10px;border:1.5px solid #FDBA74;}
+.reorder-num{font-size:10px;font-weight:800;color:var(--muted);margin-bottom:7px;}
+.reorder-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px;}
+.rchip{padding:5px 11px;border:2px solid var(--or);background:var(--orl);border-radius:18px;font-size:12px;font-weight:800;color:var(--ord);cursor:pointer;transition:all .2s;user-select:none;}
+.rchip:hover{background:var(--or);color:white;}
+.rchip.placed{opacity:.3;pointer-events:none;text-decoration:line-through;}
+.ans-line{min-height:32px;padding:4px 11px;border:2px dashed var(--border);border-radius:9px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:12px;font-weight:700;background:white;cursor:pointer;margin-bottom:5px;}
+.ans-line.has{border-style:solid;border-color:var(--or);}
+.pchip{padding:3px 9px;background:var(--orl);border:1.5px solid var(--or);border-radius:14px;font-size:12px;font-weight:800;color:var(--ord);cursor:pointer;}
+.pchip:hover{background:var(--redl);border-color:var(--red);color:var(--red);}
+textarea{width:100%;border:2px solid var(--border);border-radius:9px;padding:9px 12px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:600;outline:none;resize:vertical;color:var(--ink);}
+textarea:focus{border-color:var(--or);}
+.chk{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;cursor:pointer;color:white;margin-top:12px;transition:all .2s;}
+.chk:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.18);}
+.chk:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.chk.cor{background:var(--or);}.chk.cg{background:var(--green);}.chk.cp{background:var(--purple);}.chk.ca{background:var(--amber);}.chk.ck{background:var(--pink);}
+.fb{margin-top:9px;padding:9px 13px;border-radius:8px;font-size:12px;font-weight:700;display:none;animation:pop .3s;}
+.fb.show{display:block;}
+.fb.good{background:var(--greenl);color:var(--greend);border:1.5px solid var(--green);}
+.fb.bad{background:var(--redl);color:var(--red);border:1.5px solid var(--red);}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.final{background:linear-gradient(135deg,#431407,#9A3412);border-radius:16px;padding:26px;text-align:center;margin-top:24px;}
+.final h3{font-family:'Fredoka One',cursive;font-size:22px;color:white;margin-bottom:10px;}
+.final-score{font-family:'Fredoka One',cursive;font-size:60px;color:#FED7AA;line-height:1;}
+.final-out{font-size:13px;font-weight:700;color:rgba(255,255,255,.45);margin-bottom:16px;}
+.grade-row{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;}
+.gchip{padding:7px 14px;border-radius:9px;font-size:11px;font-weight:800;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);}
+.gchip.on{background:rgba(254,215,170,.18);border-color:#FED7AA;color:#FED7AA;}
+.submit-wrap{background:linear-gradient(135deg,#431407,#9A3412);border-radius:16px;padding:26px;text-align:center;margin-top:16px;}
+.submit-wrap h3{font-family:'Fredoka One',cursive;font-size:20px;color:white;margin-bottom:6px;}
+.submit-wrap p{color:rgba(255,255,255,.6);font-size:12px;font-weight:700;margin-bottom:18px;}
+.submit-btn{display:inline-flex;align-items:center;gap:9px;padding:14px 32px;border-radius:12px;border:none;background:linear-gradient(135deg,#EA580C,#F97316);color:white;font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;cursor:pointer;transition:all .25s;box-shadow:0 4px 18px rgba(234,88,12,.4);}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 8px 26px rgba(234,88,12,.5);}
+.submit-btn:disabled{background:#64748B;cursor:not-allowed;transform:none;box-shadow:none;}
+.submit-status{margin-top:14px;padding:11px 18px;border-radius:9px;font-size:13px;font-weight:700;display:none;}
+.submit-status.sending{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);display:block;}
+.submit-status.sent{background:#D1FAE5;color:#065F46;display:block;}
+.submit-status.error{background:#FEE2E2;color:#991B1B;display:block;}
+#warn-modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+#warn-modal.show{display:flex;}
+.warn-box{background:white;border-radius:18px;padding:32px 28px;max-width:440px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:wPop .35s cubic-bezier(.34,1.56,.64,1);}
+@keyframes wPop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.warn-icon{font-size:50px;margin-bottom:12px;display:block;}
+.warn-box h2{font-family:'Fredoka One',cursive;font-size:24px;color:#DC2626;margin-bottom:8px;}
+.warn-box p{font-size:13px;font-weight:700;color:#64748B;line-height:1.7;margin-bottom:14px;}
+.warn-count{display:inline-block;background:#FEE2E2;color:#DC2626;font-size:12px;font-weight:900;padding:5px 14px;border-radius:18px;margin-bottom:14px;border:2px solid #FCA5A5;}
+.warn-btn{padding:11px 28px;border-radius:10px;border:none;background:#DC2626;color:white;font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;cursor:pointer;}
+#suspended-screen{display:none;position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0F172A,#450A0A,#7F1D1D);align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:28px;}
+#suspended-screen.show{display:flex;}
+.sus-icon{font-size:70px;margin-bottom:16px;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.sus-box{max-width:500px;width:100%;}
+.sus-box h1{font-family:'Fredoka One',cursive;font-size:clamp(26px,5vw,42px);color:#FCA5A5;margin-bottom:10px;}
+.sus-sub{font-size:15px;font-weight:800;color:rgba(255,255,255,.65);margin-bottom:24px;}
+.sus-detail{background:rgba(239,68,68,.12);border:2px solid rgba(239,68,68,.35);border-radius:12px;padding:18px 22px;margin-bottom:20px;text-align:left;}
+.sus-detail p{font-size:12px;font-weight:700;color:rgba(255,255,255,.75);margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+.sus-detail span.lbl{color:#FCA5A5;font-weight:900;min-width:90px;display:inline-block;}
+.sus-stamp{display:inline-block;border:3px solid #EF4444;border-radius:10px;padding:8px 24px;color:#EF4444;font-family:'Fredoka One',cursive;font-size:20px;letter-spacing:3px;transform:rotate(-3deg);margin-bottom:20px;text-transform:uppercase;}
+.sus-note{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);}
+@media print{.bar,.print-btn,.chk,.final,.submit-wrap,#warn-modal,#suspended-screen{display:none!important;}body{background:white;}.ex{box-shadow:none;break-inside:avoid;}}
+@media(max-width:520px){.match-grid,.gram-row{grid-template-columns:1fr}.student-fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="warn-modal"><div class="warn-box"><span class="warn-icon">⚠️</span><h2>¡Atención!</h2><p>Saliste de la pestaña del examen. Esto <strong>no está permitido</strong> durante la evaluación.</p><div class="warn-count" id="warn-count-badge">Advertencia 1 de 1</div><p style="font-size:12px;color:#DC2626;font-weight:800">Si vuelves a salir, tu examen quedará <strong>SUSPENDIDO</strong>.</p><br><button class="warn-btn" onclick="closeWarning()">Entendido — volver al examen</button></div></div>
+<div id="suspended-screen"><div class="sus-box"><div class="sus-icon">🚫</div><h1>Examen Suspendido</h1><p class="sus-sub">Tu examen fue suspendido por abandonar la pestaña.</p><div class="sus-detail"><p><span class="lbl">Estudiante:</span><span id="sus-name">—</span></p><p><span class="lbl">Clase:</span><span id="sus-class">—</span></p><p><span class="lbl">Hora:</span><span id="sus-time">—</span></p><p><span class="lbl">Motivo:</span>Salida de pestaña detectada</p></div><div class="sus-stamp">Suspendido</div><p class="sus-note">Esta pantalla no puede cerrarse. Avisa a tu profesor/a.</p></div></div>
+
+<div class="cover"><div class="cover-inner">
+  <div class="cover-top"><span class="badge badge-s">Metro Starter · Unit 1</span><span class="badge badge-e">✏️ Written Exam</span></div>
+  <h1>On <span>vacation!</span></h1>
+  <p class="cover-sub">Vacation activities · Feelings · Present Progressive · Invitations · Reading</p>
+  <div class="student-fields">
+    <div class="sfield"><label>Student name</label><input type="text" id="student-name" placeholder="Full name..."></div>
+    <div class="sfield"><label>Date</label><input type="text" id="student-date" placeholder="dd / mm / yyyy"></div>
+    <div class="sfield"><label>Class</label><input type="text" id="student-class" placeholder="Your class..."></div>
+    <div class="score-box"><label>Total score</label><div class="score-big" id="total-disp">0</div><span>/ 75 pts</span></div>
+  </div>
+</div></div>
+
+<div class="bar">
+  <div class="bar-chip"><span>⏱</span>~55 min</div>
+  <div class="bar-chip"><span>🏖️</span>Unit 1</div>
+  <div class="bar-chip"><span>✍️</span>5 sections</div>
+  <div class="prog-wrap"><div class="prog-track"><div class="prog-fill" id="prog" style="width:0%"></div></div><div class="prog-pts" id="pts-disp">0 / 75</div></div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Print exam</button>
+
+<div class="page">
+
+<!-- §1 VOCABULARY -->
+<div class="sec-div">
+  <div class="sec-num" style="color:var(--or)">1</div>
+  <div class="sec-info"><h3 style="color:var(--ord)">Vocabulary — Vacation Activities &amp; Feelings</h3><p>Label activities · Match feelings · Choose the word</p></div>
+  <div class="sec-pts"><strong style="color:var(--or)">18</strong><span>points</span></div>
+</div>
+
+<!-- 1A vacation activities -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">A</div><h4>Write the correct vacation activity under each emoji.</h4><span class="ex-pts">7 pts</span></div>
+  <div class="ex-body">
+    <div class="bank"><span class="wt">go shopping</span><span class="wt">go to the beach</span><span class="wt">hike</span><span class="wt">stay in a hotel</span><span class="wt">sunbathe</span><span class="wt">surf</span><span class="wt">try new food</span><span class="wt">visit famous places</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:8px;">
+      <div style="border:2px solid var(--border);border-radius:10px;padding:10px 6px 7px;text-align:center;background:white"><div style="font-size:26px;margin-bottom:5px">🛍️</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="go shopping" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:10px 6px 7px;text-align:center;background:white"><div style="font-size:26px;margin-bottom:5px">🏖️</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="go to the beach" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:10px 6px 7px;text-align:center;background:white"><div style="font-size:26px;margin-bottom:5px">🥾</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="hike" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:10px 6px 7px;text-align:center;background:white"><div style="font-size:26px;margin-bottom:5px">🏨</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="stay in a hotel" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:10px 6px 7px;text-align:center;background:white"><div style="font-size:26px;margin-bottom:5px">☀️</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="sunbathe" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:10px 6px 7px;text-align:center;background:white"><div style="font-size:26px;margin-bottom:5px">🏄</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="surf" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:10px 6px 7px;text-align:center;background:white"><div style="font-size:26px;margin-bottom:5px">🗺️</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="visit famous places" data-ex="1a" placeholder="..."></div>
+    </div>
+    <button class="chk cor" onclick="chkEx(this,'1a')">✅ Check</button><div class="fb" id="1a-fb"></div>
+  </div>
+</div>
+
+<!-- 1B Match feelings -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">B</div><h4>Match the feeling (left) with its description (right).</h4><span class="ex-pts">6 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">Click a feeling on the left, then click its description on the right.</div>
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="mi" onclick="matchGame(this,'fL1')" data-id="fL1" style="border-color:#FDBA74;background:#FFF7ED;font-weight:900">😴 tired</div>
+        <div class="mi" onclick="matchGame(this,'fL2')" data-id="fL2" style="border-color:#FDBA74;background:#FFF7ED;font-weight:900">😨 scared</div>
+        <div class="mi" onclick="matchGame(this,'fL3')" data-id="fL3" style="border-color:#FDBA74;background:#FFF7ED;font-weight:900">🤩 excited</div>
+        <div class="mi" onclick="matchGame(this,'fL4')" data-id="fL4" style="border-color:#FDBA74;background:#FFF7ED;font-weight:900">😒 bored</div>
+        <div class="mi" onclick="matchGame(this,'fL5')" data-id="fL5" style="border-color:#FDBA74;background:#FFF7ED;font-weight:900">🥵 hot</div>
+        <div class="mi" onclick="matchGame(this,'fL6')" data-id="fL6" style="border-color:#FDBA74;background:#FFF7ED;font-weight:900">🍔 hungry</div>
+      </div>
+      <div class="match-col">
+        <div class="mi" onclick="matchGame(this,'fR1')" data-id="fR1" style="border-style:dashed">I need to sleep. I'm very sleepy.</div>
+        <div class="mi" onclick="matchGame(this,'fR2')" data-id="fR2" style="border-style:dashed">I'm afraid. Maybe on a plane or roller coaster.</div>
+        <div class="mi" onclick="matchGame(this,'fR3')" data-id="fR3" style="border-style:dashed">I'm really happy about something great!</div>
+        <div class="mi" onclick="matchGame(this,'fR4')" data-id="fR4" style="border-style:dashed">Nothing is interesting. I have nothing to do.</div>
+        <div class="mi" onclick="matchGame(this,'fR5')" data-id="fR5" style="border-style:dashed">The temperature is very high — maybe 35°C!</div>
+        <div class="mi" onclick="matchGame(this,'fR6')" data-id="fR6" style="border-style:dashed">I need to eat! My stomach is empty.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 1C MC feelings -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">C</div><h4>Choose the correct feeling word.</h4><span class="ex-pts">5 pts</span></div>
+  <div class="ex-body">
+    <div class="mc"><div class="mc-q">1. I don't like planes. I'm always <strong>_____</strong> on a plane.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'1')">excited</button><button class="mc-opt" onclick="cho(this,true,'1')">scared</button><button class="mc-opt" onclick="cho(this,false,'1')">bored</button></div></div>
+    <div class="mc"><div class="mc-q">2. It's really late! I'm <strong>_____</strong>. I need to go to bed.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,true,'1')">tired</button><button class="mc-opt" onclick="cho(this,false,'1')">hungry</button><button class="mc-opt" onclick="cho(this,false,'1')">hot</button></div></div>
+    <div class="mc"><div class="mc-q">3. This movie isn't interesting at all. I'm <strong>_____</strong>.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'1')">scared</button><button class="mc-opt" onclick="cho(this,true,'1')">bored</button><button class="mc-opt" onclick="cho(this,false,'1')">excited</button></div></div>
+    <div class="mc"><div class="mc-q">4. I'm really <strong>_____</strong> about our vacation! We're going to Paris!</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,true,'1')">excited</button><button class="mc-opt" onclick="cho(this,false,'1')">tired</button><button class="mc-opt" onclick="cho(this,false,'1')">cold</button></div></div>
+    <div class="mc"><div class="mc-q">5. Is that water? I'm <strong>_____</strong>! Can I have some?</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'1')">bored</button><button class="mc-opt" onclick="cho(this,false,'1')">scared</button><button class="mc-opt" onclick="cho(this,true,'1')">thirsty</button></div></div>
+  </div>
+</div>
+
+<!-- §2 GRAMMAR PRESENT PROGRESSIVE -->
+<div class="sec-div">
+  <div class="sec-num" style="color:var(--or)">2</div>
+  <div class="sec-info"><h3 style="color:var(--ord)">Grammar — Present Progressive</h3><p>Affirmative · Negative · Questions · Short answers</p></div>
+  <div class="sec-pts"><strong style="color:var(--or)">22</strong><span>points</span></div>
+</div>
+
+<div class="gram-box">
+  <strong>📌 Present Progressive</strong>
+  <div class="gram-row">
+    <div class="gram-cell"><span class="lbl">Affirmative</span>I <strong>am / 'm visiting</strong> Paris. &nbsp;·&nbsp; She <strong>is / 's surfing</strong>. &nbsp;·&nbsp; They <strong>are / 're hiking</strong>.</div>
+    <div class="gram-cell"><span class="lbl">Negative</span>I <strong>am not / 'm not eating</strong>. &nbsp;·&nbsp; He <strong>isn't swimming</strong>. &nbsp;·&nbsp; We <strong>aren't shopping</strong>.</div>
+    <div class="gram-cell"><span class="lbl">Questions</span><strong>Are</strong> you sunbathing? &nbsp;·&nbsp; <strong>Is</strong> she hiking? &nbsp;·&nbsp; What <strong>are</strong> they doing?</div>
+    <div class="gram-cell"><span class="lbl">-ing spelling rules</span>learn → learn<strong>ing</strong> &nbsp;·&nbsp; ride → rid<strong>ing</strong> &nbsp;·&nbsp; run → runn<strong>ing</strong></div>
+  </div>
+</div>
+
+<!-- 2A affirmative fill -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">A</div><h4>Complete with the present progressive (affirmative).</h4><span class="ex-pts">7 pts</span></div>
+  <div class="ex-body">
+    <div class="fl"><div class="fn">1</div> Shhh! I <input class="b lg" data-a="am watching/\'m watching" data-ex="2a" placeholder="..."> (watch) TV.</div>
+    <div class="fl"><div class="fn">2</div> My mom <input class="b lg" data-a="is not working/isn\'t working" data-ex="2a" placeholder="..."> (not work) right now.</div>
+    <div class="fl"><div class="fn">3</div> Mia and I <input class="b lg" data-a="are sunbathing/\'re sunbathing" data-ex="2a" placeholder="..."> (sunbathe) at the beach.</div>
+    <div class="fl"><div class="fn">4</div> Dan isn't here. He <input class="b lg" data-a="is swimming/\'s swimming" data-ex="2a" placeholder="..."> (swim) in the pool.</div>
+    <div class="fl"><div class="fn">5</div> I <input class="b lg" data-a="am not wearing/\'m not wearing" data-ex="2a" placeholder="..."> (not wear) jeans today.</div>
+    <div class="fl"><div class="fn">6</div> Jack and Ethan <input class="b lg" data-a="are having/\'re having" data-ex="2a" placeholder="..."> (have) dinner right now.</div>
+    <div class="fl"><div class="fn">7</div> You <input class="b lg" data-a="are not doing/aren\'t doing" data-ex="2a" placeholder="..."> (not do) homework. You <input class="b lg" data-a="are playing/\'re playing" data-ex="2a" placeholder="..."> (play) games!</div>
+    <button class="chk cor" onclick="chkEx(this,'2a')">✅ Check</button><div class="fb" id="2a-fb"></div>
+  </div>
+</div>
+
+<!-- 2B questions -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">B</div><h4>Write the present progressive question. Then write the short answer.</h4><span class="ex-pts">8 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">Write the question using present progressive. Then give the short answer shown in brackets.</div>
+    <div class="fl" style="flex-wrap:wrap;gap:8px"><div class="fn">1</div> you / learn / English? &nbsp;→ <input class="b xl" data-a="are you learning english?" data-ex="2b" placeholder="Question..."> &nbsp;[✓] <input class="b sm" data-a="yes, i am." data-ex="2b" placeholder="Answer..."></div>
+    <div class="fl" style="flex-wrap:wrap;gap:8px"><div class="fn">2</div> she / surf / right now? &nbsp;→ <input class="b xl" data-a="is she surfing right now?" data-ex="2b" placeholder="Question..."> &nbsp;[✗] <input class="b sm" data-a="no, she isn't." data-ex="2b" placeholder="Answer..."></div>
+    <div class="fl" style="flex-wrap:wrap;gap:8px"><div class="fn">3</div> they / hike / in the mountains? &nbsp;→ <input class="b xl" data-a="are they hiking in the mountains?" data-ex="2b" placeholder="Question..."> &nbsp;[✓] <input class="b sm" data-a="yes, they are." data-ex="2b" placeholder="Answer..."></div>
+    <div class="fl" style="flex-wrap:wrap;gap:8px"><div class="fn">4</div> he / eat / pizza? &nbsp;→ <input class="b xl" data-a="is he eating pizza?" data-ex="2b" placeholder="Question..."> &nbsp;[✗] <input class="b sm" data-a="no, he isn't." data-ex="2b" placeholder="Answer..."></div>
+    <button class="chk cor" onclick="chkEx(this,'2b')">✅ Check</button><div class="fb" id="2b-fb"></div>
+  </div>
+</div>
+
+<!-- 2C MC grammar -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">C</div><h4>Choose the correct present progressive form.</h4><span class="ex-pts">7 pts</span></div>
+  <div class="ex-body">
+    <div class="mc"><div class="mc-q">1. My parents often <strong>hike / are hiking</strong> on their vacations.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'2')">hike</button><button class="mc-opt" onclick="cho(this,true,'2')">are hiking</button></div></div>
+    <div class="mc"><div class="mc-q">2. I never <strong>sunbathe / am sunbathing</strong> on the beach. It's boring!</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,true,'2')">sunbathe</button><button class="mc-opt" onclick="cho(this,false,'2')">am sunbathing</button></div></div>
+    <div class="mc"><div class="mc-q">3. Look! She <strong>rides / is riding</strong> a bike right now!</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'2')">rides</button><button class="mc-opt" onclick="cho(this,true,'2')">is riding</button></div></div>
+    <div class="mc"><div class="mc-q">4. Right now, Zoe and Luke <strong>drink / are drinking</strong> sodas.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'2')">drink</button><button class="mc-opt" onclick="cho(this,true,'2')">are drinking</button></div></div>
+    <div class="mc"><div class="mc-q">5. <strong>Is / Are</strong> your sister having lunch?</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,true,'2')">Is</button><button class="mc-opt" onclick="cho(this,false,'2')">Are</button></div></div>
+    <div class="mc"><div class="mc-q">6. What <strong>is / are</strong> you doing right now?</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'2')">is</button><button class="mc-opt" onclick="cho(this,true,'2')">are</button></div></div>
+    <div class="mc"><div class="mc-q">7. They <strong>isn't / aren't</strong> visiting the museum today.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false,'2')">isn't</button><button class="mc-opt" onclick="cho(this,true,'2')">aren't</button></div></div>
+  </div>
+</div>
+
+<!-- §3 READING -->
+<div class="sec-div">
+  <div class="sec-num" style="color:var(--pink)">3</div>
+  <div class="sec-info"><h3 style="color:var(--pinkd)">Reading — Staycation!</h3><p>Read a text · True/False · Comprehension questions</p></div>
+  <div class="sec-pts"><strong style="color:var(--pink)">15</strong><span>points</span></div>
+</div>
+
+<div class="passage">
+  <h4>✈️ Try a Staycation!</h4>
+  <div class="ploc">📍 Home · 4 students on vacation at home</div>
+  <p><strong>Raquel and Seung</strong> are taking a quiz about their city. But they aren't at home — they're running around the city and finding the answers! The questions are on their phones. They send a text with the answer and then they get another question. It's a competition and it's really fun!</p>
+  <p><strong>Alice</strong> is visiting museums in New York, Paris, and London. How? Online, of course! At the moment, she's looking at art in the Museum of Modern Art in New York. She's sending her <span class="hi">collection</span> to her best friend.</p>
+  <p><strong>Victoria and Cody</strong> are cooking food from different countries. Victoria is cooking an Indian curry and Cody is making a Thai curry. Their dad is helping them.</p>
+  <p><strong>Miguel</strong> and his sister are volunteering at a food bank. Stores and companies give food to the food bank, and they give it to <span class="hi">hungry people</span> who need it. They don't get money, but they're happy because they're helping people.</p>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--pink)">A</div><h4>True (T) or False (F)?</h4><span class="ex-pts">5 pts</span></div>
+  <div class="ex-body">
+    <div class="tf" id="tf1"><div class="tf-num">1</div><div class="tf-q">Raquel and Seung are doing their quiz at home.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','F','tf1')">T</button><button class="tf-b F" onclick="doTF(this,'F','F','tf1')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf2"><div class="tf-num">2</div><div class="tf-q">Alice is visiting museums online.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','T','tf2')">T</button><button class="tf-b F" onclick="doTF(this,'F','T','tf2')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf3"><div class="tf-num">3</div><div class="tf-q">Victoria is making a Thai curry.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','F','tf3')">T</button><button class="tf-b F" onclick="doTF(this,'F','F','tf3')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf4"><div class="tf-num">4</div><div class="tf-q">Miguel is volunteering at a food bank with his sister.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','T','tf4')">T</button><button class="tf-b F" onclick="doTF(this,'F','T','tf4')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf5"><div class="tf-num">5</div><div class="tf-q">Miguel and his sister are getting money for their work.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','F','tf5')">T</button><button class="tf-b F" onclick="doTF(this,'F','F','tf5')">F</button></div><div class="tf-icon"></div></div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--pink)">B</div><h4>Answer the questions about the text.</h4><span class="ex-pts">10 pts</span></div>
+  <div class="ex-body">
+    <div class="fl" style="flex-wrap:wrap"><div class="fn" style="background:var(--pink)">1</div> Where are Raquel and Seung? → <input class="b xl" data-a="they are running around the city/in the city" data-ex="3b" placeholder="..."></div>
+    <div class="fl" style="flex-wrap:wrap"><div class="fn" style="background:var(--pink)">2</div> How do they get their quiz questions? → <input class="b xl" data-a="on their phones/by text" data-ex="3b" placeholder="..."></div>
+    <div class="fl" style="flex-wrap:wrap"><div class="fn" style="background:var(--pink)">3</div> Which museum is Alice looking at right now? → <input class="b xl" data-a="the museum of modern art/moma" data-ex="3b" placeholder="..."></div>
+    <div class="fl" style="flex-wrap:wrap"><div class="fn" style="background:var(--pink)">4</div> Who is helping Victoria and Cody cook? → <input class="b xl" data-a="their dad/dad" data-ex="3b" placeholder="..."></div>
+    <div class="fl" style="flex-wrap:wrap"><div class="fn" style="background:var(--pink)">5</div> Why is Miguel happy at the food bank? → <input class="b xl" data-a="because he is helping people" data-ex="3b" placeholder="..."></div>
+    <button class="chk ck" onclick="chkEx(this,'3b')">✅ Check</button><div class="fb" id="3b-fb"></div>
+  </div>
+</div>
+
+<!-- §4 INVITATIONS + SPEAKING STRUCTURE -->
+<div class="sec-div">
+  <div class="sec-num" style="color:var(--or)">4</div>
+  <div class="sec-info"><h3 style="color:var(--ord)">Language — Invitations</h3><p>Complete dialogues · Reorder sentences</p></div>
+  <div class="sec-pts"><strong style="color:var(--or)">12</strong><span>points</span></div>
+</div>
+
+<div class="gram-box">
+  <strong>📌 Making and responding to invitations</strong>
+  <div class="gram-row">
+    <div class="gram-cell"><span class="lbl">Invite</span><strong>Do you want to</strong> go shopping? &nbsp;·&nbsp; <strong>Do you want to</strong> visit famous places?</div>
+    <div class="gram-cell"><span class="lbl">Accept</span><strong>Sure!</strong> Let's meet at the mall. &nbsp;·&nbsp; <strong>Yes! Let's</strong> go to the beach.</div>
+    <div class="gram-cell"><span class="lbl">Decline</span><strong>Sorry, I'm busy.</strong> &nbsp;·&nbsp; <strong>No, I don't.</strong> That's boring!</div>
+    <div class="gram-cell"><span class="lbl">Ask what they're doing</span><strong>What are you doing?</strong> — I'm visiting my grandparents.</div>
+  </div>
+</div>
+
+<!-- 4A complete dialogues -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">A</div><h4>Complete the invitation dialogues.</h4><span class="ex-pts">6 pts</span></div>
+  <div class="ex-body">
+    <div style="background:#FFF7ED;border:2px solid #FDBA74;border-radius:11px;padding:15px 18px;margin-bottom:14px;">
+      <p style="font-size:13px;font-weight:800;margin-bottom:10px;color:var(--ord)">Dialogue 1</p>
+      <div class="fl"><div class="fn">A:</div> Hey! <input class="b xl" data-a="do you want to go shopping?" data-ex="4a" placeholder="Make an invitation..."></div>
+      <div class="fl"><div class="fn">B:</div> <input class="b" data-a="sure/yes" data-ex="4a" placeholder="Accept...">! Let's meet <input class="b lg" data-a="at the mall" data-ex="4a" placeholder="...">.</div>
+    </div>
+    <div style="background:#FFF7ED;border:2px solid #FDBA74;border-radius:11px;padding:15px 18px;">
+      <p style="font-size:13px;font-weight:800;margin-bottom:10px;color:var(--ord)">Dialogue 2</p>
+      <div class="fl"><div class="fn">A:</div> Hi! Do you want to <input class="b lg" data-a="go to the beach/visit famous places/hike" data-ex="4a" placeholder="activity...">?</div>
+      <div class="fl"><div class="fn">B:</div> <input class="b lg" data-a="sorry, i'm busy./no, i don't." data-ex="4a" placeholder="Decline..."></div>
+      <div class="fl"><div class="fn">A:</div> What are you doing?</div>
+      <div class="fl"><div class="fn">B:</div> I'm <input class="b xl" data-a="visiting my grandparents./sunbathing./shopping." data-ex="4a" placeholder="What are you doing...">.</div>
+    </div>
+    <button class="chk cor" onclick="chkEx(this,'4a')">✅ Check</button><div class="fb" id="4a-fb"></div>
+  </div>
+</div>
+
+<!-- 4B reorder -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">B</div><h4>Put the words in the correct order to make present progressive sentences.</h4><span class="ex-pts">6 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">Click words to build the sentence. Click a placed word to remove it.</div>
+    <div class="reorder-q" id="rq1">
+      <div class="reorder-num">Sentence 1</div>
+      <div class="reorder-chips">
+        <span class="rchip" onclick="placeWord(this,'rq1')">She</span><span class="rchip" onclick="placeWord(this,'rq1')">is</span><span class="rchip" onclick="placeWord(this,'rq1')">not</span><span class="rchip" onclick="placeWord(this,'rq1')">swimming</span><span class="rchip" onclick="placeWord(this,'rq1')">in</span><span class="rchip" onclick="placeWord(this,'rq1')">the</span><span class="rchip" onclick="placeWord(this,'rq1')">ocean.</span><span class="rchip" onclick="placeWord(this,'rq1')">surfing</span>
+      </div>
+      <div class="ans-line" id="rq1-ans" onclick="removeWord(event,'rq1')"></div>
+      <button class="chk ca" style="margin-top:6px;padding:7px 16px;font-size:12px" onclick="checkReorder('rq1','She is not swimming in the ocean.','4',this)">🔍 Check</button>
+      <div class="fb" id="rq1-fb"></div>
+    </div>
+    <div class="reorder-q" id="rq2">
+      <div class="reorder-num">Sentence 2</div>
+      <div class="reorder-chips">
+        <span class="rchip" onclick="placeWord(this,'rq2')">Are</span><span class="rchip" onclick="placeWord(this,'rq2')">you</span><span class="rchip" onclick="placeWord(this,'rq2')">trying</span><span class="rchip" onclick="placeWord(this,'rq2')">new</span><span class="rchip" onclick="placeWord(this,'rq2')">food?</span><span class="rchip" onclick="placeWord(this,'rq2')">eating</span>
+      </div>
+      <div class="ans-line" id="rq2-ans" onclick="removeWord(event,'rq2')"></div>
+      <button class="chk ca" style="margin-top:6px;padding:7px 16px;font-size:12px" onclick="checkReorder('rq2','Are you trying new food?','4',this)">🔍 Check</button>
+      <div class="fb" id="rq2-fb"></div>
+    </div>
+    <div class="reorder-q" id="rq3">
+      <div class="reorder-num">Sentence 3</div>
+      <div class="reorder-chips">
+        <span class="rchip" onclick="placeWord(this,'rq3')">They</span><span class="rchip" onclick="placeWord(this,'rq3')">are</span><span class="rchip" onclick="placeWord(this,'rq3')">visiting</span><span class="rchip" onclick="placeWord(this,'rq3')">famous</span><span class="rchip" onclick="placeWord(this,'rq3')">places</span><span class="rchip" onclick="placeWord(this,'rq3')">in</span><span class="rchip" onclick="placeWord(this,'rq3')">Paris.</span><span class="rchip" onclick="placeWord(this,'rq3')">hiking</span>
+      </div>
+      <div class="ans-line" id="rq3-ans" onclick="removeWord(event,'rq3')"></div>
+      <button class="chk ca" style="margin-top:6px;padding:7px 16px;font-size:12px" onclick="checkReorder('rq3','They are visiting famous places in Paris.','4',this)">🔍 Check</button>
+      <div class="fb" id="rq3-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- §5 WRITING -->
+<div class="sec-div">
+  <div class="sec-num" style="color:var(--or)">5</div>
+  <div class="sec-info"><h3 style="color:var(--ord)">Writing — My vacation right now!</h3><p>Write about what you are doing on vacation</p></div>
+  <div class="sec-pts"><strong style="color:var(--or)">8</strong><span>points</span></div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--or)">A</div><h4>Imagine you are on vacation. Write 6–8 sentences about what you are doing right now.</h4><span class="ex-pts">8 pts</span></div>
+  <div class="ex-body">
+    <div style="background:var(--orl);border:1.5px dashed var(--or);border-radius:9px;padding:12px 15px;margin-bottom:13px;font-size:12px;font-weight:700;color:var(--ord);line-height:2.1;">
+      💡 <strong>Checklist (2 pts per structure):</strong><br>
+      ☐ &nbsp;Say where you are on vacation (country or city)<br>
+      ☐ &nbsp;Write 2 things you ARE doing (present progressive affirmative)<br>
+      ☐ &nbsp;Write 1 thing you ARE NOT doing<br>
+      ☐ &nbsp;Describe how you are feeling (use a feelings adjective)
+    </div>
+    <textarea id="writing-5a" rows="8" placeholder="Right now, I'm on vacation in Mexico. I'm sunbathing on the beach and I'm trying new food. I'm not hiking because it's very hot! I'm excited and a little tired..."></textarea>
+    <p style="font-size:11px;font-style:italic;color:var(--muted);font-weight:600;margin-top:5px;">👩‍🏫 Teacher: 2 pts per checklist item. Max 8 pts.</p>
+  </div>
+</div>
+
+<div class="final">
+  <h3>🏖️ Your total score</h3>
+  <div class="final-score" id="total-disp2">0</div>
+  <div class="final-out">out of 75 points</div>
+  <div class="grade-row">
+    <span class="gchip" data-min="68" data-max="75">68–75 · Excellent ⭐⭐⭐</span>
+    <span class="gchip" data-min="53" data-max="67">53–67 · Very Good ⭐⭐</span>
+    <span class="gchip" data-min="38" data-max="52">38–52 · Good ⭐</span>
+    <span class="gchip" data-min="23" data-max="37">23–37 · Keep practicing 💪</span>
+    <span class="gchip" data-min="0" data-max="22">0–22 · Review needed 📖</span>
+  </div>
+</div>
+<div class="submit-wrap">
+  <h3>📤 Send exam to teacher</h3>
+  <p>Make sure you've written your full name before sending!</p>
+  <button class="submit-btn" id="submit-btn" onclick="submitExam()">✉️ Send my exam</button>
+  <div class="submit-status" id="submit-status"></div>
+</div>
+</div>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwABGUo09mpdqPsh9M7a-V09dQNa2QmnsNuvf3ekF6Sk0Wj-jvx6ss9lLkpjcUw-Xmztw/exec';
+const STORAGE_KEY='exam_u1_suspended', WARN_KEY='exam_u1_warnings', MAX_WARNINGS=1;
+let examLocked=false, titleInterval=null, originalTitle=document.title;
+window.addEventListener('DOMContentLoaded',function(){ const s=localStorage.getItem(STORAGE_KEY); if(s) showSuspendedScreen(JSON.parse(s)); });
+document.addEventListener('visibilitychange',()=>{ if(document.hidden&&!examLocked) handleViolation(); });
+window.addEventListener('blur',()=>{ if(!examLocked) handleViolation(); });
+function handleViolation(){ if(examLocked) return; let w=parseInt(localStorage.getItem(WARN_KEY)||'0')+1; localStorage.setItem(WARN_KEY,w); if(w>MAX_WARNINGS){ triggerSuspension(); } else { flashTitle('⚠️ ¡ADVERTENCIA!'); document.getElementById('warn-count-badge').textContent='Advertencia '+w+' de '+MAX_WARNINGS; document.getElementById('warn-modal').classList.add('show'); } }
+function closeWarning(){ document.getElementById('warn-modal').classList.remove('show'); stopTitleFlash(); document.title=originalTitle; }
+function triggerSuspension(){ examLocked=true; const name=document.getElementById('student-name')?.value?.trim()||'(sin nombre)'; const cls=document.getElementById('student-class')?.value?.trim()||'(sin clase)'; const now=new Date().toLocaleString('es-BO',{dateStyle:'short',timeStyle:'medium'}); const info={name,class:cls,time:now}; localStorage.setItem(STORAGE_KEY,JSON.stringify(info)); localStorage.removeItem(WARN_KEY); showSuspendedScreen(info); }
+function showSuspendedScreen(info){ examLocked=true; document.querySelectorAll('input,textarea,button,.mc-opt,.tf-b,.mi,.rchip').forEach(el=>{ el.disabled=true; el.style.pointerEvents='none'; }); document.getElementById('sus-name').textContent=info.name||'—'; document.getElementById('sus-class').textContent=info.class||'—'; document.getElementById('sus-time').textContent=info.time||'—'; document.getElementById('suspended-screen').classList.add('show'); document.body.style.overflow='hidden'; stopTitleFlash(); flashTitle('🚫 EXAMEN SUSPENDIDO'); }
+function flashTitle(msg){ stopTitleFlash(); let t=false; titleInterval=setInterval(()=>{ document.title=t?msg:originalTitle; t=!t; },900); }
+function stopTitleFlash(){ if(titleInterval){ clearInterval(titleInterval); titleInterval=null; } }
+
+let total=0; const MAX=75; const secScore={1:0,2:0,3:0,4:0,5:0};
+function upd(n,sec){ total+=n; total=Math.max(0,total); if(sec) secScore[sec]=(secScore[sec]||0)+n; const pct=Math.min(100,Math.round(total/MAX*100)); document.getElementById('prog').style.width=pct+'%'; document.getElementById('pts-disp').textContent=total+' / '+MAX; document.getElementById('total-disp').textContent=total; document.getElementById('total-disp2').textContent=total; document.querySelectorAll('.gchip').forEach(c=>{ c.classList.toggle('on',total>=+c.dataset.min&&total<=+c.dataset.max); }); }
+
+function chkEx(btn,id){ const body=btn.closest('.ex-body'); const inputs=body.querySelectorAll('input[data-a]'); let ok=0; const sec=parseInt(id.charAt(0))||0; inputs.forEach(inp=>{ const ans=(inp.dataset.a||'').toLowerCase().trim(); const val=inp.value.toLowerCase().trim().replace(/'/g,"'"); const alts=ans.split('/').map(s=>s.trim()); const correct=alts.includes(val)||alts.some(a=>val.includes(a.split(' ')[0])&&val.length>2); inp.classList.toggle('ok',correct&&val!==''); inp.classList.toggle('no',!correct&&val!==''); if(correct) ok++; }); const tot=inputs.length; const fb=document.getElementById(id+'-fb'); fb.classList.add('show'); if(ok===tot&&tot>0){ fb.className='fb show good'; fb.textContent='🎉 Perfect! '+ok+'/'+tot; } else { fb.className='fb show bad'; fb.textContent='💪 '+ok+'/'+tot+' correct — check the red ones!'; } upd(ok,sec); btn.disabled=true; }
+
+function cho(btn,isOk,sec){ const g=btn.closest('.mc-opts'); g.querySelectorAll('.mc-opt').forEach(b=>{ b.classList.remove('ok','no','rev'); b.disabled=false; }); if(isOk){ btn.classList.add('ok'); } else { btn.classList.add('no'); g.querySelectorAll('.mc-opt').forEach(b=>{ if(b!==btn) b.classList.add('rev'); }); } g.querySelectorAll('.mc-opt').forEach(b=>b.disabled=true); if(isOk) upd(1,parseInt(sec)||0); }
+
+function doTF(btn,chosen,correct,rowId){ const row=document.getElementById(rowId); row.querySelectorAll('.tf-b').forEach(b=>{ b.classList.remove('sel'); b.disabled=true; }); btn.classList.add('sel'); const icon=row.querySelector('.tf-icon'); if(chosen===correct){ row.classList.add('ok'); icon.textContent='✅'; upd(1,3); } else { row.classList.add('no'); icon.textContent='❌'; } }
+
+let selL=null, selR=null;
+const matchMap={fL1:'fR1',fL2:'fR2',fL3:'fR3',fL4:'fR4',fL5:'fR5',fL6:'fR6'};
+function matchGame(el,id){ if(el.classList.contains('matched')) return; const isL=id.includes('L'); if(isL){ if(selL) selL.classList.remove('selL'); selL=el; el.classList.add('selL'); } else { if(selR) selR.classList.remove('selR'); selR=el; el.classList.add('selR'); } if(selL&&selR){ const lId=selL.dataset.id, rId=selR.dataset.id; if(matchMap[lId]===rId){ selL.classList.remove('selL'); selL.classList.add('matched'); selR.classList.remove('selR'); selR.classList.add('matched'); upd(1,1); selL=null; selR=null; } else { selL.classList.add('wrong'); selR.classList.add('wrong'); const l=selL,r=selR; setTimeout(()=>{ l.classList.remove('selL','wrong'); r.classList.remove('selR','wrong'); },900); selL=null; selR=null; } } }
+
+function placeWord(chip,qId){ if(chip.classList.contains('placed')) return; chip.classList.add('placed'); const ansDiv=document.getElementById(qId+'-ans'); const placed=document.createElement('span'); placed.className='pchip'; placed.textContent=chip.textContent; placed.dataset.src=chip.textContent; ansDiv.classList.add('has'); ansDiv.appendChild(placed); }
+function removeWord(e,qId){ const chip=e.target.closest('.pchip'); if(!chip) return; const word=chip.dataset.src; chip.remove(); const ansDiv=document.getElementById(qId+'-ans'); if(!ansDiv.querySelector('.pchip')) ansDiv.classList.remove('has'); document.getElementById(qId).querySelectorAll('.rchip').forEach(c=>{ if(c.textContent===word&&c.classList.contains('placed')) c.classList.remove('placed'); }); }
+function checkReorder(qId,correctStr,sec,btn){ const ansDiv=document.getElementById(qId+'-ans'); const placed=[...ansDiv.querySelectorAll('.pchip')].map(c=>c.textContent.trim()); const isOk=placed.join(' ')===correctStr; btn.disabled=true; const fb=document.getElementById(qId+'-fb'); fb.classList.add('show'); if(isOk){ fb.className='fb show good'; fb.textContent='🎉 Correct!'; upd(1,parseInt(sec)||0); } else { fb.className='fb show bad'; fb.textContent='❌ Answer: '+correctStr; } }
+
+function collectAnswers(){ const a={}; function fv(ex){ return[...document.querySelectorAll(`input[data-ex="${ex}"]`)].map(i=>i.value||'_').join(' / '); } function gmc(sel){ return[...document.querySelectorAll(sel)].map((mc,i)=>{ const q=mc.querySelector('.mc-q')?.textContent?.substring(0,40)||('Q'+(i+1)); const s=mc.querySelector('.mc-opt.ok,.mc-opt.no'); return q+' → '+(s?s.textContent.trim().substring(0,25)+(s.classList.contains('ok')?' ✅':' ❌'):'(sin resp.)'); }).join(' | '); }
+a['1a_activities']=fv('1a'); a['1b_match']=[...document.querySelectorAll('.mi.matched')].map(m=>m.textContent.trim()).join(' | ')||'(sin completar)'; a['1c_feelings']=gmc('.mc[data-sec="1c"]')||gmc('.sec-div:nth-of-type(1) ~ .ex .mc');
+a['2a_pp_fill']=fv('2a'); a['2b_questions']=fv('2b'); a['2c_mc']=gmc('.mc[data-sec="2c"]');
+a['3a_tf']=['tf1','tf2','tf3','tf4','tf5'].map(id=>{ const row=document.getElementById(id); const q=row?.querySelector('.tf-q')?.textContent?.substring(0,35)||id; const s=row?.querySelector('.tf-b.sel'); const ic=row?.querySelector('.tf-icon')?.textContent||''; return q.trim()+' → '+(s?s.textContent:'?')+ic; }).join(' | ');
+a['3b_reading']=fv('3b'); a['4a_dialogue']=fv('4a');
+const r1=[...document.querySelectorAll('#rq1-ans .pchip')].map(c=>c.textContent).join(' ');
+const r2=[...document.querySelectorAll('#rq2-ans .pchip')].map(c=>c.textContent).join(' ');
+const r3=[...document.querySelectorAll('#rq3-ans .pchip')].map(c=>c.textContent).join(' ');
+a['4b_reorder']=`S1:"${r1}" | S2:"${r2}" | S3:"${r3}"`;
+a['5a_writing']=document.getElementById('writing-5a')?.value||'';
+return a; }
+
+function submitExam(){ const name=document.getElementById('student-name').value.trim(); const date=document.getElementById('student-date').value.trim(); const cls=document.getElementById('student-class').value.trim(); const statusEl=document.getElementById('submit-status'); const btn=document.getElementById('submit-btn'); if(!name){ alert('⚠️ Escribe tu nombre completo antes de enviar.'); document.getElementById('student-name').focus(); return; } if(!APPS_SCRIPT_URL||APPS_SCRIPT_URL==='PEGAR_URL_AQUI'){ statusEl.className='submit-status error'; statusEl.style.display='block'; statusEl.textContent='⚙️ El profesor aún no configuró la URL. Avísale.'; return; } btn.disabled=true; btn.textContent='⏳ Enviando...'; statusEl.className='submit-status sending'; statusEl.style.display='block'; statusEl.textContent='📡 Enviando tu examen...'; const payload={name,date,class:cls,exam:'unit1',total,sec1:secScore[1]||0,sec2:secScore[2]||0,sec3:secScore[3]||0,sec4:secScore[4]||0,sec5:secScore[5]||0,answers:collectAnswers()}; fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(()=>{ statusEl.className='submit-status sent'; statusEl.textContent='🎉 ¡Examen enviado! Bien hecho, '+name+' 👏'; btn.textContent='✅ Enviado'; }).catch(err=>{ btn.disabled=false; btn.textContent='✉️ Send my exam'; statusEl.className='submit-status error'; statusEl.textContent='❌ Error al enviar. Verifica tu conexión.'; console.error(err); }); }
+</script>
+</body>
+</html>
