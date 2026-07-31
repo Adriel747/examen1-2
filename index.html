@@ -472,7 +472,8 @@ textarea:focus{border-color:var(--or);}
 </div>
 
 <script>
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwABGUo09mpdqPsh9M7a-V09dQNa2QmnsNuvf3ekF6Sk0Wj-jvx6ss9lLkpjcUw-Xmztw/exec';
+    
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyTxPO9r_t2_zQ-PE-mLaNN989blotrUBFLXUavCf-NZjIZoKgC9t3FiEP-4xR9I_VBA/exec';
 const STORAGE_KEY='exam_u1_suspended', WARN_KEY='exam_u1_warnings', MAX_WARNINGS=1;
 let examLocked=false, titleInterval=null, originalTitle=document.title;
 window.addEventListener('DOMContentLoaded',function(){ const s=localStorage.getItem(STORAGE_KEY); if(s) showSuspendedScreen(JSON.parse(s)); });
